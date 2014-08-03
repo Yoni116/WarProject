@@ -23,4 +23,19 @@ public class LauncherDestructor extends Thread {
 		this.targets.add(new Target(l,destructTime));
 	}
 	
+	
+	@Override
+	public void run() {
+		while(true){
+			synchronized(this){
+				try {
+					if(targets.size()==0)
+						wait();
+					targets.remove(0).intercept();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
 }

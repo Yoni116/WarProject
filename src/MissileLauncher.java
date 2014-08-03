@@ -24,6 +24,10 @@ public class MissileLauncher extends Thread{
 	}
 	
 	
+	public boolean isActive() {
+		return isActive;
+	}
+
 	public String getLauncherId() {
 		return this.id;
 	}

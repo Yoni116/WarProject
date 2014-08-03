@@ -37,5 +37,15 @@ public class Target{
 		}
 	}
 
+	public int getInterceptionTime() {
+		return interceptionTime;
+	}
 
+	@Override
+	public String toString() {
+		return "Target [target=" + target + ", interceptionTime="
+				+ interceptionTime + "]";
+	}
+
+	
 }

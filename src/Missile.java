@@ -39,21 +39,24 @@ public class Missile extends Thread {
 		} catch (InterruptedException e) {} // undefined scenario
 		try {
 			launcher.acquire();
+			System.out.println(this + " lunched" );
 			launcher.setHidden();
 			sleep(flytime);
-			LogHit();
+			System.out.println(this + " hit" );
+			logHit();
 		} catch (InterruptedException e) {
-			LogInterception();
+			logInterception();
+			System.out.println(this + " intercepted" );
 		} finally {
 			launcher.release();
 		}
 	}
 
-	private void LogHit() {
+	private void logHit() {
 		// TODO
 	}
 
-	private void LogInterception() {
+	private void logInterception() {
 		// TODO
 	}
 

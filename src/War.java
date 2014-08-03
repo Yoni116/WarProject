@@ -18,8 +18,8 @@ public class War {
 	private List<LauncherDestructor> launcherDestructors;
 	private boolean warStatus = false;
 	private static War war = null; //lo egyoni?
-	static Scanner s = new Scanner(System.in);
-
+	private static Scanner s = new Scanner(System.in);
+	
 
 	public static void main(String[] args) throws NoLauncherFoundException, SAXException,
 														IOException, ParserConfigurationException {
@@ -44,7 +44,6 @@ public class War {
 			war = new War(warName);
 			break;
 		}
-
 		war.start();
 
 	}
@@ -123,11 +122,15 @@ public class War {
 		String destination;
 		int flyTime;
 		int damage;
+		System.out.println("\nAdd Missile:");
 		for(int i=0;i<missileLaunchers.size();i++){
-			System.out.println(i+" "+missileLaunchers.get(i));
+			System.out.println((i+1)+". "+missileLaunchers.get(i) +
+								(missileLaunchers.get(i).isActive()? " is Active!":" is Inactive!"));
 		}
-		System.out.println("Enter launcher number to add missile:");
-		launcherNumber=s.nextInt();
+		do{
+			System.out.println("Enter active launcher number to add missile:");
+			launcherNumber=s.nextInt();
+		}while(!missileLaunchers.get(launcherNumber).isActive());
 		System.out.println("Enter missile id:");
 		missileid=s.next();
 		System.out.println("Enter destination:");
@@ -136,7 +139,7 @@ public class War {
 		flyTime=s.nextInt();
 		System.out.println("Enter damage:");
 		damage=s.nextInt();
-		missileLaunchers.get(launcherNumber).addMissile(
+		missileLaunchers.get(launcherNumber-1).addMissile(
 								new Missile(missileid, destination, 0, flyTime, damage));
 	}
 
@@ -158,7 +161,7 @@ public class War {
 		System.out.println("4. Add a new Iron Dome to the war");
 		System.out.println("5. Add a new Luncher Destructor to the war");
 		if(!warStatus)
-		System.out.println("6. Run war with current invetory");
+			System.out.println("6. Run war with current invetory");
 		choice = s.nextInt();
 
 		return choice;
