@@ -17,7 +17,6 @@ public class MissileLauncher extends Thread{
 		this.missiles=new Vector<>();
 		this.launchpad=new Semaphore(1);
 		this.isActive=true;
-		//missiles.sort(new launchTimeComparator());
 	}
 
 	public void addMissile(Missile m){
@@ -76,14 +75,12 @@ public class MissileLauncher extends Thread{
 
 	@Override
 	public String toString() {
-		return "MissileLauncher [id=" + id + ", isHidden=" + isHidden
-				+ ", isActive=" + isActive + ", missiles=" + missiles
-				+ ", launchpad=" + launchpad + "]";
+		return "Launcher [id=" + id + ", isHidden=" + isHidden
+				+ ", isActive=" + isActive	+ "]";
 	}
 
 	public void setActive(boolean active) {
 		isActive=active;
 	}
-
 
 }

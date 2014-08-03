@@ -38,16 +38,12 @@ public class Missile extends Thread {
 			sleep(launchTime);
 		} catch (InterruptedException e) {} // undefined scenario
 		try {
-			
 			launcher.acquire();
-			System.out.println("missile" + this.id + "launched");
 			launcher.setHidden();
 			sleep(flytime);
 			LogHit();
-			System.out.println("missile" + this.id + "hit");
 		} catch (InterruptedException e) {
 			LogInterception();
-			System.out.println("missile" + this.id + "intercepted");
 		} finally {
 			launcher.release();
 		}
@@ -77,4 +73,11 @@ public class Missile extends Thread {
 	public void setLauncher(MissileLauncher launcher) {
 		this.launcher = launcher;
 	}
+
+	@Override
+	public String toString() {
+		return "Missile [id=" + id + ", destination=" + destination
+				+ ", flytime=" + flytime + ", damage=" + damage + "]";
+	}
+	
 }

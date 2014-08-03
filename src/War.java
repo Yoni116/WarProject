@@ -17,11 +17,12 @@ public class War {
 	private List<IronDome> ironDomes;
 	private List<LauncherDestructor> launcherDestructors;
 	private boolean warStatus = false;
-	private static War war = null;
+	private static War war = null; //lo egyoni?
 	static Scanner s = new Scanner(System.in);
 
 
-	public static void main(String[] args) throws NoLauncherFoundException, SAXException, IOException, ParserConfigurationException {
+	public static void main(String[] args) throws NoLauncherFoundException, SAXException,
+														IOException, ParserConfigurationException {
 		File src=new File("config.xml");
 		int firstChoice;
 		String warName;
@@ -117,8 +118,26 @@ public class War {
 	}
 
 	private void addMissile() {
-		// TODO Auto-generated method stub
-		
+		int launcherNumber;
+		String missileid;
+		String destination;
+		int flyTime;
+		int damage;
+		for(int i=0;i<missileLaunchers.size();i++){
+			System.out.println(i+" "+missileLaunchers.get(i));
+		}
+		System.out.println("Enter launcher number to add missile:");
+		launcherNumber=s.nextInt();
+		System.out.println("Enter missile id:");
+		missileid=s.next();
+		System.out.println("Enter destination:");
+		destination=s.next();
+		System.out.println("Enter flytime:");
+		flyTime=s.nextInt();
+		System.out.println("Enter damage:");
+		damage=s.nextInt();
+		missileLaunchers.get(launcherNumber).addMissile(
+								new Missile(missileid, destination, 0, flyTime, damage));
 	}
 
 
