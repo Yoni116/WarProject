@@ -20,7 +20,7 @@ public class LauncherDestructor extends Thread {
 
 
 	public void addTarget(MissileLauncher l, int destructTime) {
-		this.targets.add(new Target(l,destructTime));
+		this.targets.add(new Target(l,destructTime, this));
 	}
 	
 	
