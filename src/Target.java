@@ -3,6 +3,7 @@
 public class Target {
     private Thread target;
     private int interceptionTime;
+    private static int missileCumulativeTime=0;
 
     public Target(Missile m, int interceptionTime) {
 	this.target = m;
@@ -17,7 +18,13 @@ public class Target {
     public void intercept() {
 	if (target instanceof Missile) {
 	    try {
-		Thread.sleep(interceptionTime * 1000);
+	    	if(interceptionTime>0){
+	    		missileCumulativeTime+=interceptionTime;
+	    		Thread.sleep((missileCumulativeTime-interceptionTime) * 1000);
+	    	}
+	    	else
+	    		Thread.sleep(interceptionTime * 1000);
+		
 		    System.out.println(((Missile)target).getMid() + " trying to intercept " + System.currentTimeMillis()/1000);
 		if (target.isAlive() && ((Missile)target).isLaunched()){
 		    target.interrupt();
@@ -54,6 +61,10 @@ public class Target {
     public int getInterceptionTime() {
 	return interceptionTime;
     }
+    
+    public Thread getTarget() {
+		return target;
+	}
 
     @Override
     public String toString() {

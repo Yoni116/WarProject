@@ -1,11 +1,13 @@
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.TreeSet;
+import java.util.logging.Logger;
 
 public class IronDome extends Thread {
     private String id;
     private TreeSet<Target> targets;
     private boolean isActive;
+    private static Logger ironDomelogger = Logger.getLogger("WarLogger");
 
     public IronDome(String id) {
 	this.id = id;
@@ -29,6 +31,7 @@ public class IronDome extends Thread {
 		Iterator<Target> it = targets.iterator();
 		while (it.hasNext()) {
 		    Target t=it.next();
+		    ironDomeInterceptLog(t);
 		    t.intercept();
 		    targets.remove(t);		    
 		}
@@ -36,4 +39,9 @@ public class IronDome extends Thread {
 	    }
 	}
     }
+
+	private void ironDomeInterceptLog(Target t) {
+		ironDomelogger.severe("IronDome " + id + " has started to try and intercept "+ ((Missile) t.getTarget()).getMid());
+		
+	}
 }

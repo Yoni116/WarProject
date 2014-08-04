@@ -1,24 +1,24 @@
-D: 4/8/2014 T: 4:45:44
+D: 4/8/2014 T: 14:23:10
 Missile M1 has started launching
 
-D: 4/8/2014 T: 4:45:46
+D: 4/8/2014 T: 14:23:12
 Missile M3 has started launching
 
-D: 4/8/2014 T: 4:45:48
+D: 4/8/2014 T: 14:23:13
 Missile M1 has been intercepted
 
-D: 4/8/2014 T: 4:45:48
+D: 4/8/2014 T: 14:23:13
 Missile M2 has started launching
 
-D: 4/8/2014 T: 4:45:49
+D: 4/8/2014 T: 14:23:15
 Missile M3 has hit the target and dealt 5000 to Ofakim
 
-D: 4/8/2014 T: 4:45:51
+D: 4/8/2014 T: 14:23:17
 Missile M4 has started launching
 
-D: 4/8/2014 T: 4:45:55
+D: 4/8/2014 T: 14:23:20
 Missile M2 has hit the target and dealt 2000 to Beer-Sheva
 
-D: 4/8/2014 T: 4:45:58
+D: 4/8/2014 T: 14:23:24
 Missile M4 has hit the target and dealt 1000 to Beer-Sheva
 
