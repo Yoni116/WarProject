@@ -152,7 +152,7 @@ public class Program {
 		}
 		do {
 			System.out.println("Enter active launcher number to add missile:");
-			launcherNumber = s.nextInt();
+			launcherNumber = s.nextInt()-1;
 		} while (!war.getMissileLaunchers().get(launcherNumber).isActive());
 		System.out.println("Enter missile id:");
 		missileid = s.next();
@@ -166,10 +166,11 @@ public class Program {
 		flyTime = s.nextInt();
 		System.out.println("Enter damage:");
 		damage = s.nextInt();
-		war.getMissileLaunchers()
-		.get(launcherNumber - 1)
-		.addMissile(
-				new Missile(missileid, destination, launchTime, flyTime, damage));
+		Missile m = new Missile(missileid, destination, launchTime, flyTime, damage);
+		m.setLauncher(war.getMissileLaunchers().get(launcherNumber));
+		war.getMissileLaunchers().get(launcherNumber).addMissile(m);
+		System.out.println("Missile was added successfully");
+		
 	}
 
 }
