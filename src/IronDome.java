@@ -7,7 +7,7 @@ public class IronDome extends Thread {
 	private String id;
 	private TreeSet<Target> targets;
 	private boolean isActive;
-	private static Logger ironDomelogger = Logger.getLogger("WarLogger");
+	;
 
 	public IronDome(String id) {
 		this.id = id;

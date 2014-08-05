@@ -1,7 +1,3 @@
-import sun.launcher.resources.launcher;
-import sun.misc.Launcher;
-
-
 
 public class Target extends Thread {
 	private Thread target;
