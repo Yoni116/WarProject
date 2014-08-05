@@ -1,6 +1,7 @@
 #Logs and such
 *.log
 *.LCK
+*.txt
 
 #################
 ## Eclipse
