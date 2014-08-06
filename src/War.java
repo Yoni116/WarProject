@@ -50,7 +50,6 @@ public class War extends Thread {
 		synchronized (this) {
 			try {
 				wait();
-				status = true;
 			} catch (InterruptedException e1) {
 				e1.printStackTrace();
 			}
@@ -71,6 +70,10 @@ public class War extends Thread {
 		}
 	}
 
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+	
 	public void end() {
 		status = false;
 	}

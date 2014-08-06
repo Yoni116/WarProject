@@ -54,6 +54,7 @@ public class Program {
 			case 6: {
 				if (!war.getStatus()) {
 					synchronized (war) {
+						war.setStatus(true);
 						war.notify();
 					}
 				} else {
