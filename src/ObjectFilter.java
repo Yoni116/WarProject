@@ -11,10 +11,13 @@ public class ObjectFilter implements Filter {
 	@Override
 	public boolean isLoggable(LogRecord rec) {
 		if (rec.getParameters() != null) {
-			Object temp = rec.getParameters()[0];
-			return o == temp;
-		} else
-			return false;
+			for(Object obj: rec.getParameters()){
+				if(o==obj){
+					return true;
+				}
+			}
+		} 
+		return false;
 	}
 
 }

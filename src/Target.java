@@ -1,5 +1,9 @@
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 public class Target extends Thread {
+	private static Logger logger=Logger.getLogger("WarLogger");
 	private Thread target;
 	private Thread origin;
 	private int interceptionTime;
@@ -28,9 +32,9 @@ public class Target extends Thread {
 		if (target instanceof Missile) {
 
 			try {
-				Thread.sleep(interceptionTime * 1000);
+				sleep(interceptionTime * 1000);
 				synchronized (origin) {
-					System.out.println(((Missile)target).getMid() + " trying to intercept " + System.currentTimeMillis()/1000);
+					logInterceptionTry();
 					if (target.isAlive() && ((Missile)target).isLaunched()){
 						target.interrupt();
 						logInterception();
@@ -61,12 +65,19 @@ public class Target extends Thread {
 
 	}
 
-	private void logInterception() {
+	private void logInterceptionTry() {
+		logger.log(Level.INFO, "Iron dome " +
+				((IronDome)origin).getID() + " is trying to intercept " + ((Missile)target).getID(),origin);
+	}
 
+	private void logInterception() {
+		logger.log(Level.INFO, "Iron dome " +
+				((IronDome)origin).getID() + " has intercepted " + ((Missile)target).getID(),origin);
 	}
 
 	private void logFailedInterception() {
-
+		logger.log(Level.INFO, "Iron dome " +
+				((IronDome)origin).getID() + " has failed to intercepted " + ((Missile)target).getID(),origin);
 	}
 
 	public int getInterceptionTime() {

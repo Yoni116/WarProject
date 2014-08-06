@@ -38,6 +38,10 @@ public class IronDome extends Thread {
 			}
 		}
 	}
+
+	public String getID() {
+		return id;
+	}
 	
 
 

@@ -101,7 +101,7 @@ public class Missile extends Thread {
 		return launched;
 	}
 
-	public String getMid() {
+	public String getID() {
 		return id;
 	}
 
