@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.util.logging.FileHandler;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Missile extends Thread {
@@ -62,16 +63,16 @@ public class Missile extends Thread {
 	}
 
 	private void logLaunch() {
-		logger.severe("Missile " + id + " has started launching");
+		logger.log(Level.SEVERE, "Missile " + id + " has started launching", this);
 	}
 
 	private void logHit() {
-		logger.severe("Missile " + id + " has hit the target and dealt "
-				+ damage + " to " + destination);
+		logger.log(Level.SEVERE, "Missile " + id + " has hit the target and dealt "
+				+ damage + " to " + destination, this);
 	}
 
 	private void logInterception() {
-		logger.info("Missile " + id + " has been intercepted");
+		logger.log(Level.INFO,"Missile " + id + " has been intercepted",this);
 	}
 
 	public boolean equals(String id) {
